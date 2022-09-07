@@ -1,6 +1,7 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-SRC_URI += "file://wpa_supplicant.service"
+SRC_URI += "file://wpa_supplicant.service \
+            file://interfaces"
 
 SYSTEMD_AUTO_ENABLE_${PN} = "enable"
 
@@ -9,5 +10,7 @@ do_install_append () {
                 install -d ${D}/${systemd_unitdir}/system
                 install -m 644 ${WORKDIR}/wpa_supplicant.service ${D}/${systemd_unitdir}/system
         fi
+	install -d ${D}${sysconfdir}/network
+	install -m 644 ${WORKDIR}/interfaces ${D}${sysconfdir}/network/
 }
 
