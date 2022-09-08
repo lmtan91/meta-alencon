@@ -26,6 +26,6 @@ IMAGE_INSTALL += " \
     ${WIREGUARD} \
 "
 IMAGE_INSTALL_append = " jq p7zip rtl8821cu dhcp-client openssh python3-pyserial \
-                       python3-netifaces python3-adafruitgpio python3-docopt"
+                       python3-netifaces python3-adafruitgpio python3-docopt python3-adafruit-bbio"
 
 export IMAGE_BASENAME = "console-image"
