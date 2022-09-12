@@ -22,8 +22,7 @@ import netifaces
 import csv
 import time
 import logging
-import argparse
-# from docopt import docopt
+from docopt import docopt
 from datetime import datetime
 from collections import OrderedDict
 
@@ -373,39 +372,25 @@ def test_wifi(cf):
 
     return test_result
 
-logDir = ""
-def logpath(args):
-    print('Hello, {0}!'.format(args.name))
-    logDir = args.name
-    if not os.path.exists(args.name):
-        os.makedirs(args.name)
-
 
 def main(*args, **kwargs):
     if sys.version_info[:2] < (3, 4):
         print("Error: Python 3.4+ is required")
         sys.exit(-1)
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--log_path', help='foo help')
-    parser.add_argument('--log_level')
-    parser.add_argument('--config_file')
-    parser.add_argument('--embedded_mode', default=True)
-    args = parser.parse_args()
-    
-    
-    
+    arg = docopt(__doc__)
 
-    log_path = args.log_path
+    # Create specified log directory
+    log_path = arg["--log_path"]
     if not os.path.exists(log_path):
         os.makedirs(log_path)
 
     # Setup a logger
-    log_level = args.log_level
+    log_level = arg["--log_level"]
     setup_logger(log_path, log_level)
 
     # read config file
-    config_file = args.config_file
+    config_file = arg["--config_file"]
     try:
         with open(config_file, 'r') as json_file:
             cf = json.load(json_file, object_pairs_hook=OrderedDict)
@@ -416,7 +401,7 @@ def main(*args, **kwargs):
     test_results = OrderedDict()
     start_time = time.time()
     test_results["Start Time"] = datetime.today().strftime("%Y-%m-%d_%H:%M:%S")
-    if args.embedded_mode.lower() == "true":
+    if arg["--embedded_mode"].lower() == "true":
         test_results["Status Leds"] = test_status_leds(cf)
         test_results["Switch Inputs"] = test_switches(cf)
         test_results["Battery"] = test_battery()
@@ -424,7 +409,7 @@ def main(*args, **kwargs):
         test_results["RTC"] = test_rtc()
     test_results["RS-422"] = test_RS_422(cf)
     test_results["USB Ports"] = test_usb_ports(cf)
-    if args.embedded_mode.lower() == "true":
+    if arg["--embedded_mode"].lower() == "true":
         test_results["WiFi"] = test_wifi(cf)
     test_results["Ethernet"] = test_ethernet(cf)
     test_results["Duration"] = time.time() - start_time
