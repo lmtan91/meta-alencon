@@ -1,0 +1,99 @@
+{
+    "comms": {
+        "rs-422": {
+            "device_name": "/dev/ttyO2",
+            "control_DE": {
+                "name": "DE",
+                "pin": "P9_30",
+                "sense": "active high",
+                "pull": "GPIO.PUD_DOWN"
+            },
+            "control_RE": {
+                "name": "RE",
+                "pin": "P9_27",
+                "sense": "active low",
+                "pull": "GPIO.PUD_UP"
+            }
+        },
+        "usb_ports": {
+            "device_name": "/dev/ttyUSB0",
+            "num_ports": 3
+        },
+        "ethernet": {
+            "power_pin": {
+                "name": "Ethernet Power",
+                "pin": "P8_8",
+                "sense": "active high",
+                "pull": "GPIO.PUD_UP"
+            },
+            "num_interfaces": 2,
+            "ignore_list": ["lo", "usb0", "usb1", "can0", "can1", "wlan0"]
+        },
+        "wifi": {
+            "service_id": "wifi_30eb1f0ea20f_416c656e636f6e_managed_psk",
+            "power_pin": {
+                "name": "WiFi Power",
+                "pin": "P8_10",
+                "sense": "active high",
+                "pull": "GPIO.PUD_UP"
+            },
+            "num_interfaces": 1,
+            "ignore_list": ["eth0", "eth1", "lo", "usb0", "usb1", "can0", "can1"]
+        }
+    },
+    "gpio": {
+        "leds": [
+            {
+                "name": "Internal Status",
+                "pin": "P9_12",
+                "sense": "active high",
+                "pull": "GPIO.PUD_DOWN"
+            },
+            {
+                "name": "Internal TX",
+                "pin": "P9_23",
+                "sense": "active high",
+                "pull": "GPIO.PUD_DOWN"
+            },
+            {
+                "name": "Internal RX",
+                "pin": "P9_15",
+                "sense": "active high",
+                "pull": "GPIO.PUD_DOWN"
+            },
+            {
+                "name": "ESTOP Out",
+                "pin": "P8_13",
+                "sense": "active high",
+                "pull": "GPIO.PUD_DOWN"
+            },
+            {
+                "name": "External Red",
+                "pin": "P9_14",
+                "sense": "active high",
+                "pull": "GPIO.PUD_DOWN"
+            },
+            {
+                "name": "External Green",
+                "pin": "P9_16",
+                "sense": "active high",
+                "pull": "GPIO.PUD_DOWN"
+            },
+            {
+                "name": "External Blue",
+                "pin": "P8_19",
+                "sense": "active high",
+                "pull": "GPIO.PUD_DOWN"
+            }
+        ],
+        "switches": [
+            {
+                "name": "ESTOP_IN",
+                "pin": "P8_11",
+                "sense": "active high",
+                "pull": "GPIO.PUD_DOWN"
+            }
+        ]
+    }
+}
+
