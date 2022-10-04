@@ -29,4 +29,6 @@ IMAGE_INSTALL_append = " jq p7zip rtl8821cu dhcp-client openssh python3-pyserial
                        python3-netifaces python3-adafruitgpio python3-docopt python3-adafruit-bbio \
                        podd-testscript swupdate swupdate-www libubootenv u-boot-fw-utils"
 
+IMAGE_FSTYPES += "ext4.gz"
+
 export IMAGE_BASENAME = "poddota-image"
