@@ -1,13 +1,17 @@
 SUMMARY = "A fully featured modbus protocol stack in python"
 HOMEPAGE = "https://github.com/riptideio/pymodbus/"
-LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=2c2223d66c7e674b40527b5a4c35bd76"
+LICENSE = "CLOSED"
+#LIC_FILES_CHKSUM = "file://LICENSE;md5=2c2223d66c7e674b40527b5a4c35bd76"
 DEPENDS += "python3-six-native"
 
-SRC_URI[sha256sum] = "37c9b6f3e5c82f39ee42047ca48cbc9fd0c49a6731126789500191e9deea6cbc"
-S = "${WORKDIR}/pymodbus-${PV}"
 
-inherit pypi setuptools3
+SRC_URI = "git://github.com/tcsmith13/pymodbus;branch=dev_v2.2.0rc3"
+
+SRCREV_pn-${PN} = "c01f0d76711ff1f89f5f09b6c0e6507b03285ce0"
+
+S = "${WORKDIR}/git/"
+
+inherit setuptools3
 
 PACKAGECONFIG ??= ""
 PACKAGECONFIG[repl] = ",,,python3-aiohttp python3-click python3-prompt-toolkit python3-pygments python3-pyserial-asyncio"
