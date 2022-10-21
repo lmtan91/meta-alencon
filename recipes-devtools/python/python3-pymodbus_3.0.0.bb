@@ -1,7 +1,7 @@
 SUMMARY = "A fully featured modbus protocol stack in python"
 HOMEPAGE = "https://github.com/riptideio/pymodbus/"
 LICENSE = "CLOSED"
-#LIC_FILES_CHKSUM = "file://LICENSE;md5=2c2223d66c7e674b40527b5a4c35bd76"
+LIC_FILES_CHKSUM = ""
 DEPENDS += "python3-six-native"
 
 
