@@ -1,0 +1,8 @@
+[Unit]
+Description=Alencon PODD Ota startup script
+
+[Service]
+ExecStart=/usr/bin/python3 /home/root/hello.py
+
+[Install]
+WantedBy=multi-user.target
