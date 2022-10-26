@@ -2,7 +2,7 @@
 Description=Alencon PODD Ota startup script
 
 [Service]
-ExecStart=/usr/bin/python3 /home/root/hello.py
+ExecStart=/usr/bin/python3 /home/root/podd/podd.py
 
 [Install]
 WantedBy=multi-user.target
