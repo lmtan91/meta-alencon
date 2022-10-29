@@ -1,6 +1,8 @@
 LICENSE = "CLOSED"
 inherit systemd
 
+RDEPENDS_${PN} += "bash"
+
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE_${PN} = "podd.service"
 
