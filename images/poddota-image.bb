@@ -32,6 +32,7 @@ IMAGE_INSTALL_append = " jq p7zip rtl8821cu dhcp-client openssh python3-pyserial
             python3-plotly python3-portalocker python3-pygments python3-pymodbus python3-pyserial \
             python3-pytz python3-pyyaml python3-six python3-tenacity python3-transitions python3-websockets \
             python3-werkzeug python3-numpy python3-future python3-intelhex python3-paho-mqtt python3-hbmqtt podd udev-extraconf python3-pyconnman \
+            connman connman-client \
 "
 
 IMAGE_FSTYPES += "ext4.gz"
