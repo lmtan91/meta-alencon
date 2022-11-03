@@ -1,0 +1,15 @@
+diff --git a/source/c_adc.c b/source/c_adc.c
+index d496366..5b3896c 100644
+--- a/source/c_adc.c
++++ b/source/c_adc.c
+@@ -53,7 +53,9 @@ BBIO_err initialize_adc(void)
+     }
+ 
+ #ifdef BBBVERSION41
+-    err = load_device_tree("BB-ADC");
++    /* Workarounf not using the device tree overlay */
++    // err = load_device_tree("BB-ADC");
++    err = BBIO_OK;
+     if (err == BBIO_OK) {
+         strncat(adc_prefix_dir, "/sys/bus/iio/devices/iio:device0/in_voltage", sizeof(adc_prefix_dir));
+         snprintf(test_path, sizeof(test_path), "%s%d_raw", adc_prefix_dir, 1);
